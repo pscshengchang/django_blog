@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content%}
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">
+                {{blog_obj.id}} {{blog_obj.title}}
+            </h1>
+            <div class="entry-meta">
+                <span class="post-category"><a href="http://127.0.0.1:8000/blog/index/1/#">{{blog_obj.category.cname}}</a></span>
+                <span class="views-count"><a href="http://127.0.0.1:8000/blog/index/1/#">{{blog_obj.created}}</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            <p>&emsp;&emsp;{{blog_obj.content}}</p>
+        </div>
+        <hr>
+    </article>
+{% endblock%}

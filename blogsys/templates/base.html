@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://127.0.0.1:8000/blog/index/1/ -->
+<html lang="en" class=" js csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客</title>
+    {% load static%}
+    <!-- meta -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/pace.css'%}">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.1.3.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/pace.min.js'%}"></script>
+    <script src="{% static 'js/modernizr.custom.js'%}"></script>
+    <script src="{% static 'js/script.js'%}"></script>
+
+</head>
+<body class="  pace-done">
+    {% include 'header.html'%}
+    <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8">
+                {% block content%}
+                {% endblock%}
+                </main> 
+                {% include 'righter.html'%}   
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html'%}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content%}
+{% for cb in c_blog%}
+<article class="post post-1">
+    <header class="entry-header">
+        {{cb.created}}
+        <h3>
+            <a href="/blog/get/{{cb.id}}/">{{cb.title}}</a>
+        </h3>
+    </header>
+    <hr>
+</article>
+{% endfor%}
+{% endblock%}

@@ -1,0 +1,52 @@
+<aside class="col-md-4">
+    <div class="widget widget-recent-posts">
+        <h3 class="widget-title">最新文章</h3>
+        <ul>
+            {% for rr in r_recent_blog%}
+            <li>
+                <a href="/blog/get/{{rr.id}}/">{{rr.title|truncatechars:'10'}}</a>
+            </li>
+            {% endfor%}
+            
+        </ul>
+    </div>
+    <div class="widget widget-archives">
+        <h3 class="widget-title">归档</h3>
+        <ul>
+            {% for rf in r_file_blog%}
+            <li>
+                <a href="/blog/guidang/{{rf.0|date:'Y'}}/{{rf.0|date:'m'}}/">{{rf.0|date:'Y'}}年{{rf.0|date:'m'}}月<{{rf.1}}></a>
+            </li>
+            {% endfor%}
+        
+        </ul>
+    </div>
+
+    <div class="widget widget-category">
+        <h3 class="widget-title">分类</h3>
+        <ul>
+            {% for rc in r_cate_blog%}
+            <li>
+                <a href="/blog/category/{{rc.category_id}}/">{{rc.category__cname}}<span class="post-count"><{{rc.c}}></span></a>
+            </li>
+            {% endfor%}
+        </ul>
+    </div>
+
+    <div class="widget widget-tag-cloud">
+        <h3 class="widget-title">标签云</h3>
+        
+        <ul>
+            
+            {% for t in r_Taglist%}
+            <li>
+                <a href="http://127.0.0.1:8000/blog/index/1/#">{{t.tname}}</a>
+            </li>
+            {% endfor%}
+            
+        </ul>
+    </div>
+    <div class="rss">
+        <a href="/blog/about/"><span class="ion-social-rss-outline"></span> 关于我们</a>
+    </div>
+</aside>

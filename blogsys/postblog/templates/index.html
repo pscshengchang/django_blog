@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block content%}
+    {% for b in bloglist%}
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">
+                {{b.id}} {{b.title}}
+            </h1>
+            <div class="entry-meta">
+                <span class="post-category"><a href="http://127.0.0.1:8000/blog/index/1/#">{{b.category.cname}}</a></span>
+                <span class="views-count"><a href="http://127.0.0.1:8000/blog/index/1/#">{{b.created}}</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            <p>&emsp;&emsp;{{b.desc}}</p>
+            <div class="widget widget-tag-cloud">
+            <ul>
+            {% for t in b.tags.all%}
+                <li>
+                    <a href="http://127.0.0.1:8000/blog/index/1/#">{{t.tname}}</a>
+                </li>  
+            {% endfor%}
+            
+            </ul>
+            </div>
+            <div class="read-more cl-effect-14">
+                <a href="/blog/get/{{b.id}}/" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+            </div>
+            
+        </div>
+        <hr>
+    </article>
+    {% endfor%}
+
+    <div class="pagination">
+        <ul>
+            {% for p in page_list %}
+                {% if num == p %}
+                    <li class="current">|{{p}}|</li>
+                {% else%}
+                    <li><a href="/blog/index/{{p}}/">{{p}}</a></li>
+                {% endif%}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock%}
+
