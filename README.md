@@ -34,24 +34,29 @@ TIME_ZONE = 'Asia/Shanghai'
 ```
 6.主路由
 ```
-from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('postblog.urls')),
+    path('blog/',include('postblog.urls')),
 ]
+
 ```
 7.子路由
 ```
+from django.urls import path,re_path
 from . import views
-from django.urls import path
 
 urlpatterns = [
-    path('', views.IndexView),
-    path('page/<int:num>', views.IndexView),
-    path('post/<int:postid>',views.DeView),
+    # path('',views.index),
+    path('index/', views.index),
+    path('index/<int:num>/', views.index),
+    path('get/<int:blogid>/', views.DeView),
+    path('about/', views.about),
+    path('contact/', views.contact),
+    re_path(r'^category/(\d+)/$', views.getBlogByCid),
+    re_path(r'^guidang/(?P<year>\d+)/(?P<month>\d+)/$', views.getBlogByGuidang),
 ]
 ```
 
