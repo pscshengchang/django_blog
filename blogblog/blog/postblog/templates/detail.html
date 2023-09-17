@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load mymarkdown %}
+
+{% block title %}详情页面{% endblock %}
+
+{% block main %}
+    <div id="main">
+        <article class="article article-type-post">
+            <div class="article-meta">
+              <a class="article-date">
+                <time>{{ post_obj.created|date:'Y-m-d H:i:s' }}</time>
+              </a>
+              <div class="article-category">
+                <a class="article-category-link" href="#" target="_blank">{{ post_obj.category.cname }}</a>
+              </div>
+            </div>
+            <div class="article-inner">
+                <header class="article-header">
+                    <h1 itemprop="name">
+                        <a class="article-title">{{ post_obj.title }}</a>
+                    </h1>
+                </header>
+                <div class="article-entry" itemprop="articleBody">
+                    <h2>前言</h2>
+                        {{ post_obj.desc }}
+                    <hr>
+                        {{ post_obj.concent|md|safe}}
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+
+{% endblock %}
